@@ -1,6 +1,5 @@
 spring:
   application:
     name: transportSecure
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/transportSecure
+  profiles:
+    active: dev
