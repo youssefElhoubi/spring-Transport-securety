@@ -3,3 +3,7 @@ spring:
     name: transportSecure
   profiles:
     active: dev
+security:
+  jwt:
+    secret-key: "08b91ce2419365a1184c5f8da0652cebaeeccde60ae3b18a4c107114c2a50724"
+    expiration: 3600000
