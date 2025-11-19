@@ -14,10 +14,10 @@ import java.util.Map;
 
 @Service
 public class JwtService {
-    @Value("${security.jwt.expiration}")
-    private String JWT_SECRET;
     @Value("${security.jwt.secret-key}")
-    private String JWT_expiration;
+    private String JWT_SECRET;
+    @Value("${security.jwt.expiration}")
+    private Long JWT_expiration;
 
     public String createToken(String userId, Map<String, Object> claims) {
         return Jwts.builder().
