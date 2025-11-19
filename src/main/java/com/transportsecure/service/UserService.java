@@ -43,6 +43,16 @@ public class UserService {
         user.setSpecialty(dto.getSpecialty());
 
         return userRepository.save(user);
+    }
 
+    public String DeleteUserById(String id) {
+        userRepository.deleteById(id);
+        return "user has been deleted";
+    }
+    public User findUserById(String id) {
+        return userRepository.findById(id).orElseThrow(() -> {
+            new RuntimeException("user not found");
+            return null;
+        });
     }
 }

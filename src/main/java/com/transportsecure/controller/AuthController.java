@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/auth")
 public class AuthController {
     @PostMapping
-    public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserDTO user) {
+    public ResponseEntity<?> signUp(@Valid @RequestBody CreateUserDTO user) {
 
         return null;
     }
