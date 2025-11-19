@@ -1,6 +1,9 @@
 package com.transportsecure.repository;
 
+import com.transportsecure.entity.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface User extends MongoRepository<User, String> {
+@Repository
+public interface UserRepository extends MongoRepository<User, String> {
 }

@@ -3,7 +3,11 @@ package com.transportsecure.dto;
 import com.transportsecure.enums.Specialty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class UpdateUserDTO {
     @NotBlank(message = "Id is required to complete this process")
     private String id;
