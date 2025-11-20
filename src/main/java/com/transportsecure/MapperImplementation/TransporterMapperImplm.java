@@ -3,10 +3,12 @@ package com.transportsecure.MapperImplementation;
 import com.transportsecure.dto.transtorter.ListTransporters;
 import com.transportsecure.entity.User;
 import com.transportsecure.mapper.TransporterMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class TransporterMapperImplm implements TransporterMapper {
     @Override
     public List<ListTransporters> entityToDto(List<User> users) {
