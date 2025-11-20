@@ -48,7 +48,7 @@ public class JwtService {
         }
     }
 
-    public String extractUsername(String token) {
+    public String extractId(String token) {
         return decodeToken(token).getSubject();
     }
 
