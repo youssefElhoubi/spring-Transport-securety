@@ -12,4 +12,5 @@ public class UpdateTransporter {
     @NotNull(message = "specialty should not be empty")
     @NotBlank(message = "specialty should not be blank")
     private Specialty specialty;
+    private boolean active;
 }

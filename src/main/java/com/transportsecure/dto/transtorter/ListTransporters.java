@@ -2,9 +2,11 @@ package com.transportsecure.dto.transtorter;
 
 import com.transportsecure.enums.Role;
 import com.transportsecure.enums.Specialty;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ListTransporters {
     private String id;
     private String email;
