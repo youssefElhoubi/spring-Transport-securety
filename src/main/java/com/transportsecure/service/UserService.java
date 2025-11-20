@@ -1,5 +1,6 @@
 package com.transportsecure.service;
 
+import com.transportsecure.MapperImplementation.UserMapperIplem;
 import com.transportsecure.dto.CreateUserDTO;
 import com.transportsecure.dto.UpdateUserDTO;
 import com.transportsecure.entity.User;
@@ -11,10 +12,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     private UserRepository userRepository;
-    private UserMapper userMapper;
+    private UserMapperIplem userMapper;
     private PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, UserMapper userMapper, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, UserMapperIplem userMapper, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.passwordEncoder = passwordEncoder;

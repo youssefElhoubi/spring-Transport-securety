@@ -7,15 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service("validationService")
 public class ValidationService {
-    public void isValidSpecialty(CreateUserDTO user) {
-        if (user.getRole().equals(Role.AMINE)) {
-            if (user.getSpecialty()!=null){
-                throw new RuntimeException("admin should not have a Specialty");
-            }
+    public boolean isValidSpecialty(CreateUserDTO user) {
+        if (user.getRole().equals(Role.ADMIN)) {
+            return user.getSpecialty() == null;
         }else  {
-            if (user.getSpecialty()==null){
-                throw new RuntimeException("TRANSPORTER should have a Specialty");
-            }
+            return user.getSpecialty() != null;
         }
     }
 }

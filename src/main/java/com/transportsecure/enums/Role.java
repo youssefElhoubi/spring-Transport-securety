@@ -1,6 +1,6 @@
 package com.transportsecure.enums;
 
 public enum Role {
-    AMINE,
+    ADMIN,
     TRANSPORTER
 }
