@@ -29,13 +29,14 @@ public class AuthController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("signup")
+    @PostMapping("/signup")
     @PreAuthorize("@validationService.isValidSpecialty(#dto)")
     public ResponseEntity<?> signUp(@Valid @RequestBody CreateUserDTO dto) {
         User user = userService.createUser(dto);
         String Token = jwtService.createToken(user.getId(), Map.of("role", user.getRole()));
         return ResponseEntity.ok(Token);
     }
+
     @PostMapping("login")
     public ResponseEntity<?> logIn(@Valid @RequestBody LogInDto dto){
         User user = userService.findByEmail(dto.getEmail());
