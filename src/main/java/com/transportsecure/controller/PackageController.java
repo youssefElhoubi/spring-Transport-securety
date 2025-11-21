@@ -19,6 +19,7 @@ public class PackageController {
     public PackageController(PackageService packageService) {
         this.packageService = packageService;
     }
+
     @PostMapping("colis")
     public ResponseEntity<?> createPackage(CreatePackageDTO dto) {
         packageService.createPackage(dto);
@@ -27,9 +28,18 @@ public class PackageController {
 
         return ResponseEntity.ok(response);
     }
+
     @PutMapping("/colis/{id}/assign")
-    public ResponseEntity<?> assignPackage(@PathVariable("id") String id,@Valid @RequestBody AssignPackageDTO dto) {
-        packageService.assignPackage(id,dto);
+    public ResponseEntity<?> assignPackage(@PathVariable("id") String id, @Valid @RequestBody AssignPackageDTO dto) {
+        packageService.assignPackage(id, dto);
         return ResponseEntity.ok("Package assigned successfully");
+    }
+
+    @DeleteMapping("colis/delete/{id}")
+    public ResponseEntity<?> deletePackage(@PathVariable("id") String id) {
+        String result = packageService.deletePackage(id);
+        HashMap<String, Object> response = new HashMap<String, Object>();
+        response.put("message", result);
+        return ResponseEntity.ok("Package deleted successfully");
     }
 }

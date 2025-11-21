@@ -32,4 +32,9 @@ public class PackageService {
         packageRepository.save(packag);
         return packag;
     }
+    public String deletePackage(String id) {
+        packageRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
+        packageRepository.deleteById(id);
+        return "Package deleted successfully";
+    }
 }
