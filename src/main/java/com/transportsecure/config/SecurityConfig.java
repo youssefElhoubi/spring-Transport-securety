@@ -23,6 +23,7 @@ public class SecurityConfig {
                         auth
                                 .requestMatchers("api/auth/**").permitAll()
                                 .requestMatchers("api/transporter/**").hasRole("ADMIN")
+                                .requestMatchers("api/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class)

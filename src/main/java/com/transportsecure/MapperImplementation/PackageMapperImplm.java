@@ -16,7 +16,6 @@ public class PackageMapperImplm {
         entity.setType(dto.getType());
         entity.setWeight(dto.getWeight());
         entity.setDestination_address(dto.getDestination_address());
-        entity.setCarrierId(dto.getCarrierId());
 
         switch (dto.getType()) {
             case FRAGILE:
@@ -50,7 +49,6 @@ public class PackageMapperImplm {
         dto.setType(entity.getType());
         dto.setWeight(entity.getWeight());
         dto.setDestination_address(entity.getDestination_address());
-        dto.setCarrierId(entity.getCarrierId());
         if (entity.getHandling_instructions() != null) {
             dto.setHandling_instructions(entity.getHandling_instructions());
         }

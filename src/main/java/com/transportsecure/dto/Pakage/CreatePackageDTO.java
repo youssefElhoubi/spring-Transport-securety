@@ -21,6 +21,4 @@ public class CreatePackageDTO {
     private String handling_instructions;
     private Double temperature_min;
     private Double temperature_max;
-    @NotBlank(message = "carrierId should not be empty")
-    private String carrierId;
 }
