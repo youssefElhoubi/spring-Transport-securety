@@ -1,13 +1,13 @@
 package com.transportsecure.controller;
 
+import com.transportsecure.dto.Pakage.AssignPackageDTO;
 import com.transportsecure.dto.Pakage.CreatePackageDTO;
 import com.transportsecure.service.PackageService;
+import jakarta.validation.Valid;
 import org.hibernate.validator.internal.util.stereotypes.ThreadSafe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -26,5 +26,10 @@ public class PackageController {
         response.put("message", "Package created successfully");
 
         return ResponseEntity.ok(response);
+    }
+    @PutMapping("/colis/{id}/assign")
+    public ResponseEntity<?> assignPackage(@PathVariable("id") String id,@Valid @RequestBody AssignPackageDTO dto) {
+        packageService.assignPackage(id,dto);
+        return ResponseEntity.ok("Package assigned successfully");
     }
 }

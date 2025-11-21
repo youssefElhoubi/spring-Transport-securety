@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class assignPackageDTO {
+public class AssignPackageDTO {
     @NotBlank
     private String transporterId;
 }

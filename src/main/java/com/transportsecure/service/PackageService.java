@@ -1,8 +1,8 @@
 package com.transportsecure.service;
 
 import com.transportsecure.MapperImplementation.PackageMapperImplm;
+import com.transportsecure.dto.Pakage.AssignPackageDTO;
 import com.transportsecure.dto.Pakage.CreatePackageDTO;
-import com.transportsecure.dto.Pakage.assignPackageDTO;
 import com.transportsecure.entity.User;
 import com.transportsecure.repository.PackageRepository;
 import com.transportsecure.repository.UserRepository;
@@ -25,7 +25,7 @@ public class PackageService {
         Package packag = packageMapper.toEntity(createPackageDTO);
         return packageRepository.save(packag);
     }
-    public Package assignPackage(String id, assignPackageDTO dto) {
+    public Package assignPackage(String id, AssignPackageDTO dto) {
         User user = userRepository.findById(dto.getTransporterId()).orElseThrow(() -> new RuntimeException("User not found"));
         Package packag = packageRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
         packag.setCarrierId(user.getId());
