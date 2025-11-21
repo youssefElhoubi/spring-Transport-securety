@@ -33,7 +33,7 @@ public class AuthController {
     @PreAuthorize("@validationService.isValidSpecialty(#dto)")
     public ResponseEntity<?> signUp(@Valid @RequestBody CreateUserDTO dto) {
         User user = userService.createUser(dto);
-        String Token = jwtService.createToken(user.getId(), Map.of("role", user.getRole()));
+        String Token = jwtService.createToken(user.getId(), Map.of("role", user.getRole().toString()));
         return ResponseEntity.ok(Token);
     }
 
@@ -41,7 +41,7 @@ public class AuthController {
     public ResponseEntity<?> logIn(@Valid @RequestBody LogInDto dto){
         User user = userService.findByEmail(dto.getEmail());
         passwordEncoder.matches(dto.getPassword(), user.getPassword());
-        String Token = jwtService.createToken(user.getId(), Map.of("role", user.getRole()));
+        String Token = jwtService.createToken(user.getId(), Map.of("role", user.getRole().toString()));
         return ResponseEntity.ok(Token);
     }
 }

@@ -6,6 +6,8 @@ import com.transportsecure.dto.transtorter.UpdateTransporter;
 import com.transportsecure.entity.User;
 import com.transportsecure.enums.Role;
 import com.transportsecure.repository.UserRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,8 +30,8 @@ public class TransporterService {
         userService.save(transporter);
         return transporter;
     }
-    public List<ListTransporters> ListTransporters(){
-        List<User> list = userService.findAllByRole(Role.ADMIN);
+    public List<ListTransporters> ListTransporters(Pageable pageable){
+        Page<User> list = userService.findAllByRole(Role.TRANSPORTER, pageable);
         return transporterMapper.entityToDto(list);
     }
 }
