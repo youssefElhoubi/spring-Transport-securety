@@ -24,7 +24,7 @@ public class TransporterController {
         this.transporterService = transporterService;
     }
 
-    @GetMapping("/List")
+    @GetMapping("/list")
     public List<ListTransporters> ListTransporters(Pageable pageable) {
         return transporterService.ListTransporters(pageable);
     }
@@ -33,6 +33,7 @@ public class TransporterController {
     public User updateTransporter(@PathVariable String id, @Validated @RequestBody UpdateTransporter updateTransporter) {
         return transporterService.updateTransporter(updateTransporter, id);
     }
+
 
 
 }

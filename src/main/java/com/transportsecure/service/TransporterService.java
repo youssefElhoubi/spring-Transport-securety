@@ -31,7 +31,7 @@ public class TransporterService {
         return transporter;
     }
     public List<ListTransporters> ListTransporters(Pageable pageable){
-        Page<User> list = userService.findAllByRole(Role.ADMIN, pageable);
+        Page<User> list = userService.findAllByRole(Role.TRANSPORTER, pageable);
         return transporterMapper.entityToDto(list);
     }
 }
